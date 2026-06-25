@@ -139,19 +139,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
 .problem-text h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:24px;color:var(--black)}
 .problem-text p{font-size:1.02rem;color:var(--gray-2);margin-bottom:1.2em;max-width:52ch}
-.problem-visual{display:flex;flex-direction:column;gap:14px}
-.prob-card{background:var(--white);border:1px solid var(--line-light);border-radius:var(--radius-lg);padding:22px 24px}
-.prob-card h4{font-size:.97rem;margin-bottom:6px;color:var(--black)}
-.prob-card p{font-size:.87rem;color:var(--gray-2);line-height:1.5}
-.prob-card.accent{background:var(--black);color:var(--white)}
-.prob-card.accent h4{color:var(--white)}
+.problem-visual{display:flex;flex-direction:column;gap:10px}
+.prob-card{background:var(--white);border:1px solid var(--line-light);border-radius:var(--radius-lg);padding:20px 22px}
+.prob-card h4{font-size:.95rem;margin-bottom:5px;color:var(--black)}
+.prob-card p{font-size:.86rem;color:var(--gray-2);line-height:1.5}
+.prob-divider{display:flex;align-items:center;gap:12px;padding:4px 0;font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gray-2)}
+.prob-divider::before,.prob-divider::after{content:'';flex:1;height:1px;background:var(--line-light)}
+.prob-card.accent{background:var(--black);color:var(--white);border:2px solid var(--coral)}
+.prob-card.accent h4{color:var(--white);font-size:1rem}
 .prob-card.accent p{color:var(--gray)}
 @media(max-width:820px){.problem-grid{grid-template-columns:1fr;gap:48px}}
 
 /* LAYERS */
 .layers-wrap{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--line-dark);border:1px solid var(--line-dark);border-radius:var(--radius-xl);overflow:hidden;max-width:960px;margin:0 auto}
-.layer-item{background:var(--black-2);padding:28px 30px;display:flex;gap:18px;align-items:flex-start;transition:background .25s}
+.layer-item{background:var(--black-2);padding:28px 30px;display:flex;gap:18px;align-items:flex-start;transition:background .25s;text-decoration:none;color:inherit}
 .layer-item:hover{background:var(--black-3)}
+.layer-item.layer-featured{border-left:3px solid var(--coral);background:rgba(232,82,42,.06)}
+.layer-item.layer-featured:hover{background:rgba(232,82,42,.1)}
 .layer-num{font-family:'Outfit',sans-serif;font-size:1.7rem;font-weight:800;color:var(--coral);line-height:1;flex-shrink:0;width:36px}
 .layer-content h3{font-size:1.02rem;margin-bottom:6px;color:var(--white)}
 .layer-content p{font-size:.87rem;color:var(--gray);line-height:1.5}
@@ -159,9 +163,10 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 
 /* VERTICALS */
 .vert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--line-dark)}
-.vert-card{background:var(--black-2);padding:44px 36px;display:flex;flex-direction:column;gap:12px;transition:background .25s}
-.vert-card:hover{background:var(--black-3)}
-.vert-icon{width:42px;height:42px;border-radius:10px;background:var(--coral);display:grid;place-items:center;font-size:1.2rem;color:#fff;margin-bottom:6px}
+.vert-card{background:var(--black-2);padding:44px 36px;display:flex;flex-direction:column;gap:12px;transition:background .25s,border-color .25s;border-top:3px solid transparent}
+.vert-card:hover{background:var(--black-3);border-top-color:var(--coral)}
+.vert-icon{width:48px;height:48px;border-radius:12px;background:rgba(232,82,42,.12);border:1px solid rgba(232,82,42,.3);display:grid;place-items:center;margin-bottom:6px}
+.vert-icon svg{width:24px;height:24px;stroke:var(--coral);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .vert-card h3{font-size:1.35rem;color:var(--white)}
 .vert-card p{font-size:.9rem;color:var(--gray);flex:1;line-height:1.55}
 .vert-link{font-size:.87rem;font-weight:700;color:var(--coral);display:inline-flex;align-items:center;gap:.3em;margin-top:8px}
@@ -180,7 +185,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 @media(max-width:820px){.ai-split{grid-template-columns:1fr;gap:48px}}
 
 /* STACK */
-.stack-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--line-dark)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px;background:var(--line-dark)}
 .stack-tool{background:var(--black-2);padding:32px 24px;border-bottom:3px solid transparent;transition:border-color .25s,background .25s}
 .stack-tool:hover{background:var(--black-3);border-bottom-color:var(--coral)}
 .stack-tool h4{font-size:1rem;color:var(--white);margin-bottom:8px}
@@ -193,6 +198,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 .testi-card{background:var(--black-3);padding:36px 32px;display:flex;flex-direction:column;gap:18px}
 .testi-quote{font-size:1.04rem;line-height:1.6;color:var(--white-2)}
 .testi-quote::before{content:'\201C';color:var(--coral);font-size:1.3rem;display:block;margin-bottom:4px;font-family:'Outfit',sans-serif}
+.testi-author{display:flex;align-items:center;gap:12px}
+.testi-avatar{width:38px;height:38px;border-radius:50%;background:var(--coral);color:#fff;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;display:grid;place-items:center;flex-shrink:0;letter-spacing:.02em}
 .testi-attr{font-size:.83rem;color:var(--gray);font-weight:600}
 @media(max-width:780px){.testi-grid{grid-template-columns:1fr;background:none;gap:2px}}
 
@@ -200,8 +207,14 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 .cta-section{background:var(--coral);padding:96px 0;text-align:center}
 .cta-section h2{font-size:clamp(2.2rem,5vw,3.8rem);color:#fff;margin-bottom:16px;max-width:760px;margin-left:auto;margin-right:auto}
 .cta-section .cta-lede{font-size:1.08rem;color:rgba(255,255,255,.8);max-width:50ch;margin:0 auto 36px}
+.stack-tool{text-decoration:none;color:inherit}
+.stack-tool:hover{background:var(--black-3)}
 .cta-paths{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:680px;margin:0 auto}
-.cta-path{background:rgba(0,0,0,.18);border:1px solid rgba(255,255,255,.18);border-radius:var(--radius-lg);padding:28px 28px 30px;text-align:left;transition:background .25s;display:block}
+.cta-path{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:var(--radius-lg);padding:28px 28px 30px;text-align:left;transition:background .25s,border-color .25s;display:block;color:inherit;text-decoration:none}
+.cta-path:hover{background:rgba(255,255,255,.1)}
+.cta-path-primary{background:var(--white);color:var(--black);border-color:var(--white)}
+.cta-path-primary:hover{background:#f0f0f0;border-color:#f0f0f0}
+.cta-path-primary h4,.cta-path-primary p,.cta-path-primary span{color:var(--black)}
 .cta-path:hover{background:rgba(0,0,0,.28)}
 .cta-path h4{font-size:1.08rem;color:#fff;margin-bottom:8px}
 .cta-path p{font-size:.88rem;color:rgba(255,255,255,.72);margin-bottom:16px;line-height:1.5}
@@ -355,6 +368,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
       <h4>The brand designer</h4>
       <p>Makes you a beautiful website built on a strategy nobody wrote.</p>
     </div>
+    <div class="prob-divider">vs</div>
     <div class="prob-card accent">
       <h4>Practice Proof</h4>
       <p>Builds the whole system. Six layers, in sequence, by senior operators who&rsquo;ve been inside practices like yours.</p>
@@ -373,30 +387,30 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
   <p>Each layer does its job and feeds the next. Remove one and the others underperform &mdash; which is why single-service agencies can&rsquo;t deliver what an integrated system can.</p>
 </div>
 <div class="layers-wrap reveal">
-  <div class="layer-item">
+  <a href="/people.html" class="layer-item">
     <div class="layer-num">01</div>
     <div class="layer-content"><h3>People</h3><p>Growth is a derivative of culture. We map your team with the Belbin Team Roles framework before we touch anything else &mdash; a misaligned team produces inconsistent results no marketing can fix.</p></div>
-  </div>
-  <div class="layer-item">
+  </a>
+  <a href="/brand-strategy.html" class="layer-item">
     <div class="layer-num">02</div>
     <div class="layer-content"><h3>Brand Strategy</h3><p>We use design thinking methodology to find your position before we build your brand. Most practices do this backwards. We don&rsquo;t.</p></div>
-  </div>
-  <div class="layer-item">
+  </a>
+  <a href="/brand.html" class="layer-item">
     <div class="layer-num">03</div>
     <div class="layer-content"><h3>Brand</h3><p>StoryBrand certified. We give your practice a story every team member can tell &mdash; and every client remembers.</p></div>
-  </div>
-  <div class="layer-item">
+  </a>
+  <a href="/design.html" class="layer-item">
     <div class="layer-num">04</div>
     <div class="layer-content"><h3>Design</h3><p>In professional services, design is how you signal trust before a word is read. Every decision sits downstream of strategy.</p></div>
-  </div>
-  <div class="layer-item">
+  </a>
+  <a href="/marketing.html" class="layer-item">
     <div class="layer-num">05</div>
     <div class="layer-content"><h3>Marketing</h3><p>SEO, AI search, paid, content, reputation, conversion &mdash; run by one integrated team against one plan, measured against revenue.</p></div>
-  </div>
-  <div class="layer-item">
+  </a>
+  <a href="/ai-automation.html" class="layer-item layer-featured">
     <div class="layer-num">06</div>
-    <div class="layer-content"><h3>AI</h3><p>Lead qualification agents, voice intake, practice-trained workspaces, automation and AI search visibility. The engine that runs while you do the work you trained for.</p></div>
-  </div>
+    <div class="layer-content"><h3>AI <span style="font-size:.7rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--coral);vertical-align:middle;margin-left:8px">New</span></h3><p>Lead qualification agents, voice intake, practice-trained workspaces, automation and AI search visibility. The engine that runs while you do the work you trained for.</p></div>
+  </a>
 </div>
 <div style="text-align:center;margin-top:48px" class="reveal">
   <a href="/how-it-works.html" class="btn btn-coral">See how the full system works &rarr;</a>
@@ -415,19 +429,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 </div>
 <div class="vert-grid reveal">
   <a href="/law-firms.html" class="vert-card">
-    <div class="vert-icon" aria-hidden="true">&#9878;</div>
+    <div class="vert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3v1M6 6l-1-1M18 6l1-1M3 12h1M20 12h1M6 18l-1 1M18 18l1 1M12 20v1"/><circle cx="12" cy="12" r="4"/><path d="M5 12a7 7 0 0 1 7-7M19 12a7 7 0 0 1-7 7"/></svg></div>
     <h3>Law Firms</h3>
     <p>Litigation, family, personal injury, conveyancing, commercial, migration, criminal, in-house. We understand solicitors&rsquo; conduct rules and law society advertising regulations in every state.</p>
     <span class="vert-link">Built for law firms &rarr;</span>
   </a>
   <a href="/healthcare.html" class="vert-card">
-    <div class="vert-icon" aria-hidden="true">&#43;</div>
+    <div class="vert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></div>
     <h3>Healthcare Practices</h3>
     <p>GP clinics, specialists, dental, allied health, physiotherapy, psychology, cosmetic, surgical. We understand AHPRA advertising guidelines and the trust dynamics of patient acquisition.</p>
     <span class="vert-link">Built for healthcare &rarr;</span>
   </a>
   <a href="/financial-services.html" class="vert-card">
-    <div class="vert-icon" aria-hidden="true">&#36;</div>
+    <div class="vert-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2v2M12 20v2M17 7l-5 5-5-5M7 17l5-5 5 5"/><circle cx="12" cy="12" r="3"/></svg></div>
     <h3>Financial Practices</h3>
     <p>Financial advisers, accountants, mortgage brokers, SMSF specialists, wealth managers. We understand AFSL obligations, ASIC guidance and compliance-safe marketing.</p>
     <span class="vert-link">Built for financial services &rarr;</span>
@@ -468,11 +482,11 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 </div>
 </div>
 <div class="stack-grid reveal">
-  <div class="stack-tool"><h4>PracticeDash</h4><p>Every lead traced from first click to signed matter. Your true cost-per-matter, by channel.</p></div>
-  <div class="stack-tool"><h4>PracticeStripe</h4><p>A CRM built around matter types, referral sources, conflict flags and practitioner routing.</p></div>
-  <div class="stack-tool"><h4>PracticeRanker</h4><p>Review velocity and reputation management, generated compliantly within your industry&rsquo;s rules.</p></div>
-  <div class="stack-tool"><h4>Practice Appointments</h4><p>Online booking with qualification logic built in. Consultations arrive pre-screened.</p></div>
-  <div class="stack-tool"><h4>SeenScreen</h4><p>Waiting room and reception screens that build trust, educate and prompt referrals.</p></div>
+  <a href="/practice-stack.html" class="stack-tool"><h4>PracticeDash</h4><p>Every lead traced from first click to signed matter. Your true cost-per-matter, by channel.</p></a>
+  <a href="/practice-stack.html" class="stack-tool"><h4>PracticeStripe</h4><p>A CRM built around matter types, referral sources, conflict flags and practitioner routing.</p></a>
+  <a href="/practice-stack.html" class="stack-tool"><h4>PracticeRanker</h4><p>Review velocity and reputation management, generated compliantly within your industry&rsquo;s rules.</p></a>
+  <a href="/practice-stack.html" class="stack-tool"><h4>Practice Appointments</h4><p>Online booking with qualification logic built in. Consultations arrive pre-screened.</p></a>
+  <a href="/practice-stack.html" class="stack-tool"><h4>SeenScreen</h4><p>Waiting room and reception screens that build trust, educate and prompt referrals.</p></a>
 </div>
 <div style="text-align:center;margin-top:48px" class="reveal">
   <a href="/practice-stack.html" class="btn btn-outline-white">Explore the Practice Stack &rarr;</a>
@@ -491,15 +505,15 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 <div class="testi-grid reveal">
   <div class="testi-card">
     <p class="testi-quote">Dan and the Practice Proof team understood our practice in a way no agency ever had. They didn&rsquo;t fit us to a template. They built something that was actually ours.</p>
-    <span class="testi-attr">Principal, Legal Practice, Queensland</span>
+    <div class="testi-author"><span class="testi-avatar">LP</span><span class="testi-attr">Principal, Legal Practice, Queensland</span></div>
   </div>
   <div class="testi-card">
     <p class="testi-quote">We&rsquo;d been through three agencies before Practice Proof. The difference was immediate &mdash; they walked in already understanding our industry and had a plan inside the first week.</p>
-    <span class="testi-attr">Principal, Healthcare Practice, New South Wales</span>
+    <div class="testi-author"><span class="testi-avatar">HP</span><span class="testi-attr">Principal, Healthcare Practice, New South Wales</span></div>
   </div>
   <div class="testi-card">
     <p class="testi-quote">Senior people, in every meeting, doing the actual work. After years of being handed to juniors, that alone was worth the change.</p>
-    <span class="testi-attr">Director, Financial Advisory Practice, Victoria</span>
+    <div class="testi-author"><span class="testi-avatar">FA</span><span class="testi-attr">Director, Financial Advisory Practice, Victoria</span></div>
   </div>
 </div>
 </section>
@@ -510,7 +524,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
   <h2 class="reveal">Build the system your practice should have had years ago.</h2>
   <p class="cta-lede reveal">Two ways to start. Either one gets you a direct conversation with a senior operator who already understands your industry.</p>
   <div class="cta-paths reveal">
-    <a href="/start-here.html" class="cta-path">
+    <a href="/start-here.html" class="cta-path cta-path-primary">
       <h4>Take the Practice Diagnostic</h4>
       <p>Eight questions. Five minutes. A personalised recommendation on exactly where to start. No obligation, no sales script.</p>
       <span>Start Here &rarr;</span>
@@ -559,7 +573,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--coral);outline-offs
 <div class="foot-grid">
   <div class="foot-brand">
     <a href="/" class="logo" aria-label="Practice Proof home"><span class="logo-mark" aria-hidden="true">PP</span> Practice Proof</a>
-    <p>The growth operating system for professional practices. By practitioners, for practitioners.</p>
+    <p style="font-weight:600;color:var(--white-2)">The growth operating system for professional practices. By practitioners, for practitioners.</p>
+    <a href="https://www.linkedin.com/company/practiceproof" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:.83rem;font-weight:500;color:var(--gray);transition:color .2s" onmouseover="this.style.color='var(--white)'" onmouseout="this.style.color='var(--gray)'"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>LinkedIn</a>
   </div>
   <div class="foot-col">
     <h4>Who we work with</h4>
