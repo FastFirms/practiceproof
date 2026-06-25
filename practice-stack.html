@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Practice Stack | Proprietary Software for Professional Practices | Practice Proof</title>
+<meta name="description" content="Five tools built exclusively for professional practices — PracticeDash, PracticeStripe, PracticeRanker, Practice Appointments and SeenScreen.">
+<link rel="canonical" href="https://www.practiceproof.com/practice-stack">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Practice Proof">
+<meta property="og:title" content="The Practice Stack | Proprietary Software for Professional Practices | Practice Proof">
+<meta property="og:description" content="Five tools built exclusively for professional practices — PracticeDash, PracticeStripe, PracticeRanker, Practice Appointments and SeenScreen.">
+<meta property="og:url" content="https://www.practiceproof.com/practice-stack">
+<meta name="robots" content="noindex, nofollow, max-image-preview:large">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#BAD6FD;
+  --blue-deep:#9DC4FB;
+  --blue-soft:#D4E3FD;
+  --cream:#FAF9F6;
+  --cream-2:#F0EEE8;
+  --paper:#FFFFFF;
+  --ink:#000000;
+  --ink-mute:#3a4060;
+  --line:#e2dfd8;
+  --line-dark:#9DC4FB;
+  --radius:14px;
+  --radius-lg:22px;
+  --radius-xl:30px;
+  --maxw:1200px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Hanken Grotesk',system-ui,-apple-system,sans-serif;background:var(--cream);color:var(--ink);line-height:1.6;font-size:17px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif;font-weight:700;line-height:1.07;letter-spacing:-.02em}
+a{color:inherit;text-decoration:none}
+img,video{max-width:100%;display:block}
+ul{list-style:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+.eyebrow{font-size:.73rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-mute);display:inline-block}
+.skip{position:absolute;left:-999px;top:0;z-index:200;background:var(--blue);color:#000;padding:14px 22px;border-radius:0 0 12px 0;font-weight:600}
+.skip:focus{left:0}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:3px solid var(--ink);outline-offset:3px;border-radius:6px}
+.btn{display:inline-flex;align-items:center;gap:.5em;font-family:inherit;font-weight:600;font-size:.96rem;padding:13px 24px;border-radius:10px;border:1.5px solid transparent;cursor:pointer;transition:transform .3s var(--ease),background .25s,color .25s;white-space:nowrap}
+.btn-primary{background:var(--ink);color:var(--cream)}
+.btn-primary:hover{transform:translateY(-2px);background:#222}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--cream);transform:translateY(-2px)}
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:100;background:var(--blue);border-bottom:1px solid var(--blue-deep)}
+.nav{display:flex;align-items:center;gap:28px;height:70px}
+.logo{font-family:'Outfit',sans-serif;font-weight:700;font-size:1.2rem;color:var(--ink);display:flex;align-items:center;gap:.5em;flex-shrink:0}
+.logo-mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:grid;place-items:center;color:var(--cream);font-size:.85rem;font-weight:700;font-family:'Hanken Grotesk',sans-serif;flex-shrink:0}
+.nav-links{display:flex;gap:22px;align-items:center;margin-right:auto;margin-left:18px}
+.nav-links a{font-size:.9rem;font-weight:500;color:var(--ink-mute);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
+.nav-cta{display:flex;align-items:center;gap:10px}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+.nav-toggle span{width:22px;height:2px;background:var(--ink);border-radius:2px}
+@media(max-width:960px){.nav-links,.nav-cta .link-quiet{display:none}.nav-toggle{display:flex}.nav{justify-content:space-between;gap:0}
+.mobile-menu{position:fixed;inset:70px 0 auto 0;background:var(--blue-deep);padding:26px 26px 38px;display:flex;flex-direction:column;gap:4px;transform:translateY(-130%);transition:transform .45s var(--ease);z-index:99}
+.mobile-menu.open{transform:translateY(0)}.mobile-menu a{color:var(--ink);font-size:1.1rem;font-weight:500;padding:13px 0;border-bottom:1px solid var(--line-dark)}.mobile-menu .btn{margin-top:16px;justify-content:center}}
+@media(min-width:961px){.mobile-menu{display:none}}
+/* SECTIONS */
+.section-pad{padding:90px 0}
+.section-head{max-width:680px;margin:0 auto 52px;text-align:center}
+.section-head.left{margin-left:0;text-align:left}
+.section-head .eyebrow{margin-bottom:14px}
+.section-head h2{font-size:clamp(2rem,3.9vw,3.1rem);margin-bottom:14px}
+.section-head p{color:var(--ink-mute);font-size:1.07rem}
+/* HERO */
+.page-hero{background:var(--blue);padding:80px 0 70px}
+.page-hero h1{font-size:clamp(2.4rem,5.5vw,4.2rem);letter-spacing:-.025em;margin-bottom:20px;max-width:820px}
+.page-hero .lede{font-size:1.14rem;color:var(--ink-mute);max-width:58ch;margin-bottom:32px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+/* ARGUMENT SECTION */
+.argument-section{background:var(--cream-2);padding:80px 0}
+.argument-inner{max-width:760px}
+.argument-inner p{font-size:1.1rem;color:var(--ink-mute);line-height:1.75;margin-bottom:1.3em}
+.argument-inner p:last-child{margin-bottom:0}
+.argument-inner strong{color:var(--ink)}
+/* TOOL FEATURE ROWS */
+.tool-row{padding:88px 0}
+.tool-row:nth-child(odd){background:var(--cream)}
+.tool-row:nth-child(even){background:var(--cream-2)}
+.tool-row-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.tool-row-content{}
+.tool-tag{display:inline-flex;align-items:center;gap:8px;background:var(--blue);border:1px solid var(--blue-deep);border-radius:999px;padding:5px 14px;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:22px}
+.tool-row-content h2{font-size:clamp(1.9rem,3.2vw,2.7rem);margin-bottom:8px}
+.tool-row-content .tool-subtitle{font-size:1.05rem;color:var(--ink-mute);font-weight:600;margin-bottom:22px;font-style:italic}
+.tool-row-content p{font-size:1rem;color:var(--ink-mute);line-height:1.7;margin-bottom:28px}
+.tool-capabilities{}
+.tool-capabilities h4{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-mute);margin-bottom:14px;font-weight:700}
+.tool-cap-list{display:flex;flex-direction:column;gap:10px}
+.tool-cap-list li{display:flex;align-items:flex-start;gap:11px;font-size:.96rem;color:var(--ink)}
+.tool-cap-list li::before{content:"→";font-weight:700;color:var(--ink);flex-shrink:0;margin-top:1px}
+.tool-visual{display:flex;align-items:stretch}
+.tool-visual-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-xl);padding:36px 32px;width:100%;display:flex;flex-direction:column;gap:20px;min-height:320px}
+.tool-visual-card.blue-bg{background:var(--blue);border-color:var(--blue-deep)}
+.tool-visual-label{font-size:.75rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-mute)}
+.tool-visual-name{font-family:'Outfit',sans-serif;font-size:2.1rem;font-weight:800;color:var(--ink);line-height:1.1}
+.tool-visual-desc{font-size:.92rem;color:var(--ink-mute);line-height:1.6;flex:1}
+.tool-visual-badge{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:var(--cream);border-radius:8px;padding:8px 16px;font-size:.85rem;font-weight:600;width:fit-content}
+@media(max-width:860px){.tool-row-inner{grid-template-columns:1fr;gap:36px}.tool-visual{display:none}}
+/* CTA BAND */
+.cta-band{background:var(--blue);padding:80px 0;text-align:center}
+.cta-band h2{font-size:clamp(1.9rem,3.8vw,2.9rem);margin-bottom:16px;max-width:640px;margin-left:auto;margin-right:auto}
+.cta-band p{font-size:1.07rem;color:var(--ink-mute);max-width:52ch;margin:0 auto 32px}
+.cta-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+/* FOOTER */
+.site-footer{background:var(--blue);border-top:1px solid var(--blue-deep);padding:60px 0 28px}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:38px;margin-bottom:44px}
+.foot-brand .logo{margin-bottom:14px}
+.foot-brand p{font-size:.9rem;color:var(--ink-mute);max-width:32ch;line-height:1.6}
+.foot-col h4{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:14px;font-weight:700}
+.foot-col a{display:block;font-size:.9rem;color:var(--ink-mute);padding:4px 0;transition:color .2s}
+.foot-col a:hover{color:var(--ink)}
+.foot-bottom{border-top:1px solid var(--blue-deep);padding-top:22px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:.83rem;color:var(--ink-mute)}
+@media(max-width:780px){.foot-grid{grid-template-columns:1fr 1fr;gap:30px}}
+@media(max-width:460px){.foot-grid{grid-template-columns:1fr}}
+/* STACK OVERVIEW BAR */
+.stack-bar{background:var(--ink);padding:52px 0}
+.stack-bar-inner{display:flex;gap:0;justify-content:space-between;align-items:stretch;flex-wrap:wrap}
+.stack-pill{flex:1;min-width:160px;padding:20px 24px;border-right:1px solid rgba(255,255,255,.1);text-align:center}
+.stack-pill:last-child{border-right:none}
+.stack-pill-name{font-family:'Outfit',sans-serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:5px}
+.stack-pill-role{font-size:.8rem;color:rgba(255,255,255,.5)}
+@media(max-width:780px){.stack-bar-inner{gap:1px;background:rgba(255,255,255,.1)}.stack-pill{background:var(--ink);min-width:calc(50% - 1px)}.stack-pill:nth-child(odd){border-right:1px solid rgba(255,255,255,.1)}}
+@media(max-width:400px){.stack-pill{min-width:100%;border-right:none;border-bottom:1px solid rgba(255,255,255,.1)}}
+</style>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-header" role="banner">
+<div class="wrap"><nav class="nav" aria-label="Main navigation">
+<a href="/" class="logo" aria-label="Practice Proof home"><span class="logo-mark" aria-hidden="true">PP</span> Practice Proof</a>
+<div class="nav-links" role="list">
+  <a href="/how-it-works.html">How it works</a>
+  <a href="#">Who we work with ▾</a>
+  <a href="#">What we do ▾</a>
+  <a href="/practice-stack.html" aria-current="page">Practice Stack</a>
+  <a href="/about.html">About</a>
+</div>
+<div class="nav-cta">
+  <a href="/start-here.html" class="btn btn-primary">Start Here</a>
+</div>
+<button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" onclick="this.setAttribute('aria-expanded',this.getAttribute('aria-expanded')==='false'?'true':'false');document.querySelector('.mobile-menu').classList.toggle('open')">
+  <span></span><span></span><span></span>
+</button>
+</nav></div>
+</header>
+
+<div class="mobile-menu" role="navigation" aria-label="Mobile navigation">
+  <a href="/how-it-works.html">How it works</a>
+  <a href="/law-firms.html">Law Firms</a>
+  <a href="/healthcare.html">Healthcare</a>
+  <a href="/financial-services.html">Financial Services</a>
+  <a href="/practice-stack.html">Practice Stack</a>
+  <a href="/about.html">About</a>
+  <a href="/start-here.html" class="btn btn-primary">Start Here</a>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="page-hero" aria-labelledby="hero-heading">
+  <div class="wrap">
+    <span class="eyebrow">The Practice Stack</span>
+    <h1 id="hero-heading">We built our own software. Because nothing off the shelf was good enough.</h1>
+    <p class="lede">Five tools, built exclusively for professional practices, integrated with each other and with everything else we deploy. No other agency in this space has this.</p>
+    <div class="hero-actions">
+      <a href="/start-here.html" class="btn btn-primary">See which tools fit your practice</a>
+    </div>
+  </div>
+</section>
+
+<!-- STACK OVERVIEW BAR -->
+<div class="stack-bar" aria-label="The five tools in the Practice Stack">
+  <div class="wrap">
+    <div class="stack-bar-inner">
+      <div class="stack-pill">
+        <div class="stack-pill-name">PracticeDash</div>
+        <div class="stack-pill-role">Lead &amp; revenue intelligence</div>
+      </div>
+      <div class="stack-pill">
+        <div class="stack-pill-name">PracticeStripe</div>
+        <div class="stack-pill-role">CRM for professional practices</div>
+      </div>
+      <div class="stack-pill">
+        <div class="stack-pill-name">PracticeRanker</div>
+        <div class="stack-pill-role">Reputation &amp; review intelligence</div>
+      </div>
+      <div class="stack-pill">
+        <div class="stack-pill-name">Practice Appointments</div>
+        <div class="stack-pill-role">Intelligent scheduling</div>
+      </div>
+      <div class="stack-pill">
+        <div class="stack-pill-name">SeenScreen</div>
+        <div class="stack-pill-role">Digital signage</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- THE ARGUMENT -->
+<section class="argument-section" aria-labelledby="argument-heading">
+  <div class="wrap">
+    <div class="argument-inner">
+      <span class="eyebrow" style="margin-bottom:18px">Why we built it</span>
+      <p><strong>Off-the-shelf tools are built for everyone, which means they're optimised for no one.</strong> Over 20 years we mapped exactly where professional practices leak growth — then built software to close each gap.</p>
+      <p>This stack is the reason our work compounds, and it's the part of Practice Proof a competitor can't replicate by next quarter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL 1: PRACTICEDASH -->
+<section class="tool-row" id="practicedash" aria-labelledby="practicedash-heading">
+  <div class="wrap">
+    <div class="tool-row-inner">
+      <div class="tool-row-content">
+        <div class="tool-tag">Tool 01</div>
+        <h2 id="practicedash-heading">PracticeDash</h2>
+        <p class="tool-subtitle">Lead tracking &amp; performance intelligence</p>
+        <p>Know exactly where every lead came from, what happened to it, and what it was worth. PracticeDash connects marketing activity to intake outcomes, so the reporting that matters is revenue-linked, not traffic-linked. You finally see your true cost per new client, by channel.</p>
+        <div class="tool-capabilities">
+          <h4>Key capabilities</h4>
+          <ul class="tool-cap-list" role="list">
+            <li>Lead source to revenue attribution</li>
+            <li>Channel-level cost per acquisition</li>
+            <li>Real-time intake pipeline</li>
+            <li>Marketing performance dashboard</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tool-visual" aria-hidden="true">
+        <div class="tool-visual-card blue-bg">
+          <div class="tool-visual-label">Practice Stack</div>
+          <div class="tool-visual-name">PracticeDash</div>
+          <div class="tool-visual-desc">Every lead. Every channel. Every dollar. Connect your marketing spend to new client revenue — not just clicks and impressions.</div>
+          <div class="tool-visual-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M2 10L5.5 6.5L8 9L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Revenue-linked reporting
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL 2: PRACTICESTRIPE -->
+<section class="tool-row" id="practicestripe" aria-labelledby="practicestripe-heading">
+  <div class="wrap">
+    <div class="tool-row-inner">
+      <div class="tool-row-content">
+        <div class="tool-tag">Tool 02</div>
+        <h2 id="practicestripe-heading">PracticeStripe</h2>
+        <p class="tool-subtitle">CRM built for professional practices</p>
+        <p>Not a generic sales CRM retrofitted for professional services. PracticeStripe is built around how practices actually work — matter and service types, referral sources, practitioner routing, conflict and compliance flags, client lifecycle stages.</p>
+        <div class="tool-capabilities">
+          <h4>Key capabilities</h4>
+          <ul class="tool-cap-list" role="list">
+            <li>Matter-type and service routing</li>
+            <li>Referral source tracking</li>
+            <li>Conflict and compliance flags</li>
+            <li>Client lifecycle management</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tool-visual" aria-hidden="true">
+        <div class="tool-visual-card">
+          <div class="tool-visual-label">Practice Stack</div>
+          <div class="tool-visual-name">PracticeStripe</div>
+          <div class="tool-visual-desc">A CRM that understands what a matter is. What a referral source means. What compliance looks like in a professional context. Built from the ground up for how practices work.</div>
+          <div class="tool-visual-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><circle cx="7" cy="7" r="5" stroke="currentColor" stroke-width="2"/><path d="M7 4v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Built for professional services
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL 3: PRACTICERANKER -->
+<section class="tool-row" id="practiceranker" aria-labelledby="practiceranker-heading">
+  <div class="wrap">
+    <div class="tool-row-inner">
+      <div class="tool-row-content">
+        <div class="tool-tag">Tool 03</div>
+        <h2 id="practiceranker-heading">PracticeRanker</h2>
+        <p class="tool-subtitle">Reputation &amp; review intelligence</p>
+        <p>Review velocity, response automation, sentiment monitoring and practitioner-level reporting. Your online reputation is the first thing a prospective client checks. PracticeRanker makes sure what they find builds trust — generated compliantly, within your industry's rules.</p>
+        <div class="tool-capabilities">
+          <h4>Key capabilities</h4>
+          <ul class="tool-cap-list" role="list">
+            <li>Review generation workflows</li>
+            <li>Response automation</li>
+            <li>Sentiment monitoring</li>
+            <li>Compliance-safe across law, healthcare and financial</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tool-visual" aria-hidden="true">
+        <div class="tool-visual-card blue-bg">
+          <div class="tool-visual-label">Practice Stack</div>
+          <div class="tool-visual-name">PracticeRanker</div>
+          <div class="tool-visual-desc">The first thing a prospective client does is check your reviews. PracticeRanker makes sure what they find is current, authentic, and compliant with your professional obligations.</div>
+          <div class="tool-visual-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M7 1l1.5 3.5H12l-2.8 2 1 3.5L7 8l-3.2 2 1-3.5L2 4.5h3.5L7 1z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            Reputation intelligence
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL 4: PRACTICE APPOINTMENTS -->
+<section class="tool-row" id="practice-appointments" aria-labelledby="appointments-heading">
+  <div class="wrap">
+    <div class="tool-row-inner">
+      <div class="tool-row-content">
+        <div class="tool-tag">Tool 04</div>
+        <h2 id="appointments-heading">Practice Appointments</h2>
+        <p class="tool-subtitle">Intelligent scheduling</p>
+        <p>Online booking with qualification logic built in. Prospects don't just pick a time — they answer questions that route them to the right person, flag conflicts, and feed intake automatically. Consultations arrive pre-screened.</p>
+        <div class="tool-capabilities">
+          <h4>Key capabilities</h4>
+          <ul class="tool-cap-list" role="list">
+            <li>Qualification-first booking flow</li>
+            <li>Practitioner and service routing</li>
+            <li>Conflict and compliance flags</li>
+            <li>Automatic intake sync</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tool-visual" aria-hidden="true">
+        <div class="tool-visual-card">
+          <div class="tool-visual-label">Practice Stack</div>
+          <div class="tool-visual-name">Practice Appointments</div>
+          <div class="tool-visual-desc">Booking software that qualifies before it schedules. Every consultation arrives pre-screened, correctly routed, and already in your intake system.</div>
+          <div class="tool-visual-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="2" y="3" width="10" height="9" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 2v2M9 2v2M2 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Qualification-first booking
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TOOL 5: SEENSCREEN -->
+<section class="tool-row" id="seenscreen" aria-labelledby="seenscreen-heading">
+  <div class="wrap">
+    <div class="tool-row-inner">
+      <div class="tool-row-content">
+        <div class="tool-tag">Tool 05</div>
+        <h2 id="seenscreen-heading">SeenScreen</h2>
+        <p class="tool-subtitle">Digital signage</p>
+        <p>The waiting room and reception are marketing opportunities most practices ignore. SeenScreen turns them into trust-building, education and referral touchpoints, managed centrally and updated remotely.</p>
+        <div class="tool-capabilities">
+          <h4>Key capabilities</h4>
+          <ul class="tool-cap-list" role="list">
+            <li>Centrally managed content</li>
+            <li>Service and team spotlights</li>
+            <li>NPS and referral prompts</li>
+            <li>Multi-location management</li>
+          </ul>
+        </div>
+      </div>
+      <div class="tool-visual" aria-hidden="true">
+        <div class="tool-visual-card blue-bg">
+          <div class="tool-visual-label">Practice Stack</div>
+          <div class="tool-visual-name">SeenScreen</div>
+          <div class="tool-visual-desc">Most practices let their waiting rooms sit idle. SeenScreen turns that time into a trust signal — educating clients, surfacing services, and prompting referrals before the consultation even starts.</div>
+          <div class="tool-visual-badge">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><rect x="1" y="2" width="12" height="8" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 10v2M9 10v2M4 12h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            Managed centrally
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band" aria-labelledby="cta-heading">
+  <div class="wrap">
+    <h2 id="cta-heading">The stack works as a system. So does your growth.</h2>
+    <p>Find out which tools are right for your practice and how they fit into your existing setup.</p>
+    <div class="cta-actions">
+      <a href="/start-here.html" class="btn btn-primary">Start Here</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer" role="contentinfo">
+<div class="wrap">
+<div class="foot-grid">
+  <div class="foot-brand">
+    <a href="/" class="logo" aria-label="Practice Proof home"><span class="logo-mark" aria-hidden="true">PP</span> Practice Proof</a>
+    <p>The growth operating system for professional practices. By practitioners, for practitioners.</p>
+  </div>
+  <div class="foot-col">
+    <h4>Who we work with</h4>
+    <a href="/law-firms.html">Law Firms</a>
+    <a href="/healthcare.html">Healthcare Practices</a>
+    <a href="/financial-services.html">Financial Practices</a>
+  </div>
+  <div class="foot-col">
+    <h4>What we do</h4>
+    <a href="/how-it-works.html">How It Works</a>
+    <a href="/people.html">People</a>
+    <a href="/brand-strategy.html">Brand Strategy</a>
+    <a href="/brand.html">Brand</a>
+    <a href="/design.html">Design</a>
+    <a href="/marketing.html">Marketing</a>
+    <a href="/ai-automation.html">AI &amp; Automation</a>
+  </div>
+  <div class="foot-col">
+    <h4>Company</h4>
+    <a href="/practice-stack.html">Practice Stack</a>
+    <a href="/about.html">About</a>
+    <a href="/start-here.html">Start Here</a>
+    <a href="mailto:help@practiceproof.com">help@practiceproof.com</a>
+  </div>
+</div>
+<div class="foot-bottom">
+  <span>&copy; 2024 Practice Proof. All rights reserved.</span>
+  <span>Growth agency for law, healthcare &amp; financial practices.</span>
+</div>
+</div>
+</footer>
+
+<script>
+const hdr=document.querySelector('.site-header');
+if(hdr)window.addEventListener('scroll',()=>hdr.classList.toggle('scrolled',window.scrollY>30),{passive:true});
+</script>
+
+</html>
